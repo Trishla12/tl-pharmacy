@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F5F3F8;
+  color: #2D1B4E;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F3F8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C8B6DB;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A78BCC;
+}
+
+/* Custom Button Styles */
+.btn-primary {
+  @apply px-6 py-3 bg-primary text-white rounded-xl font-medium hover:bg-primary-dark transition-colors duration-300 shadow-soft;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 bg-secondary text-dark rounded-xl font-medium hover:bg-accent transition-colors duration-300 shadow-soft;
+}
+
+.btn-outline {
+  @apply px-6 py-3 border-2 border-primary text-primary rounded-xl font-medium hover:bg-primary-light transition-colors duration-300;
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(90deg, #E8DDEF 25%, #D4C5E2 50%, #E8DDEF 75%);
+  background-size: 1000px 100%;
+}
+
+/* Toast Notifications */
+.toast-container {
+  @apply fixed top-4 right-4 z-50;
+}
+
+.toast {
+  @apply bg-white rounded-xl p-4 shadow-soft-lg mb-2 flex items-center gap-2 animate-fadeIn;
+}
+
+.toast.success {
+  @apply border-l-4 border-success;
+}
+
+.toast.error {
+  @apply border-l-4 border-error;
+}
+
+.toast.warning {
+  @apply border-l-4 border-warning;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.animate-fadeOut {
+  animation: fadeOut 0.3s ease-out;
+}
